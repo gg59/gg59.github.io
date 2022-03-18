@@ -4,22 +4,28 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>Geo de Rieulay</title>
+        <title>Arduino capteurs de température DHT11 DHT22</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Capteurs DHT11 et DHT22 Ce capteur permet de mesurer la température et l'humidité. Trois broches : VCC, DATA et GND. La broche DATA doit être..." />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
                 <h1><a href="/">Geo de Rieulay</a></h1>
                 <nav><ul>
-                    <li><a href="/category/micro-controleurs.html">Micro-Controleurs</a></li>
+                    <li class="active"><a href="/category/micro-controleurs.html">Micro-Controleurs</a></li>
                     <li><a href="/category/raspberry.html">Raspberry</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/arduino-capteurs-de-temperature-dht11-dht22.html" rel="bookmark"
+           title="Permalink to Arduino capteurs de température DHT11 DHT22">Arduino capteurs de température DHT11 DHT22</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/arduino-capteurs-de-temperature-dht11-dht22.html">Arduino capteurs de température DHT11 DHT22</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2022-03-17T00:00:00+01:00">
                 Published: jeu. 17 mars 2022
@@ -30,7 +36,7 @@
         </address>
 <p>In <a href="/category/micro-controleurs.html">Micro-Controleurs</a>.</p>
 <p>tags: <a href="/tag/arduino.html">arduino</a> <a href="/tag/dht11.html">dht11</a> <a href="/tag/dht22.html">dht22</a> </p>
-</footer><!-- /.post-info --><h1>Capteurs DHT11 et DHT22</h1>
+</footer><!-- /.post-info -->      <h1>Capteurs DHT11 et DHT22</h1>
 <p>Ce capteur permet de mesurer la température et l'humidité. Trois
 broches : VCC, DATA et GND. La broche DATA doit être connectée sur une
 entrée numérique de l'Arduino (Ex, broche 7).</p>
@@ -423,107 +429,11 @@ seconde
 delay(60000);
 
 }
-</pre>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/creer-un-raccourci-sur-le-bureau.html" rel="bookmark"
-                           title="Permalink to Créer un raccourci sur le bureau">Créer un raccourci sur le bureau</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-03-17T00:00:00+01:00">
-                Published: jeu. 17 mars 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/gg.html">GG</a>
-        </address>
-<p>In <a href="/category/raspberry.html">Raspberry</a>.</p>
-<p>tags: <a href="/tag/raspberry.html">raspberry</a> <a href="/tag/raccourci.html">raccourci</a> <a href="/tag/lien.html">lien</a> </p>
-</footer><!-- /.post-info -->                <p>Aller dans le répertoire home/pi/Bureau, et créer un fichier texte ayant comme suffixe .desktop</p>
-<p>Exemple :</p>
-<pre>
-[Desktop Entry]
-Type=Application
-Name=bjdev
-Icon=/home/pi/Documents/basicjavacompiler/images/exe.gif
-Exec=java -jar bjdev.jar
-Path=/home/pi/Documents/basicjavacompiler
-Terminal=false
 </pre>
-                <a class="readmore" href="/creer-un-raccourci-sur-le-bureau.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/modifier-la-taille-du-fichier-swap.html" rel="bookmark"
-                           title="Permalink to Modifier la taille du fichier swap">Modifier la taille du fichier swap</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-03-17T00:00:00+01:00">
-                Published: jeu. 17 mars 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/gg.html">GG</a>
-        </address>
-<p>In <a href="/category/raspberry.html">Raspberry</a>.</p>
-<p>tags: <a href="/tag/raspberry.html">raspberry</a> <a href="/tag/swap.html">swap</a> </p>
-</footer><!-- /.post-info -->                <p>Le raspberry a+ a 512mo de ram et une mémoire swap par défaut de 100mo. Pour l’augmenter :</p>
-<pre>
-sudo nano /etc/dphys-swapfile
-</pre>
-
-<p>et modifier la ligne</p>
-<pre>
-CONF_SWAPFILE=100
-</pre>
-
-<p>en remplaçant la valeur 100 par la valeur en Mo dont vous avez besoin. Si vous avez besoin d’une valeur …</p>
-                <a class="readmore" href="/modifier-la-taille-du-fichier-swap.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/programmer-un-attiny85-a-laide-dun-arduino.html" rel="bookmark"
-                           title="Permalink to Programmer un Attiny85 à l'aide d'un Arduino">Programmer un Attiny85 à l'aide d'un Arduino</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-03-17T00:00:00+01:00">
-                Published: jeu. 17 mars 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/gg.html">GG</a>
-        </address>
-<p>In <a href="/category/micro-controleurs.html">Micro-Controleurs</a>.</p>
-<p>tags: <a href="/tag/arduino.html">arduino</a> <a href="/tag/attiny85.html">attiny85</a> </p>
-</footer><!-- /.post-info -->                <h1>Introduction</h1>
-<p>Ce document montre comment utiliser un Arduino pour programmer le
-composant Attiny85. Les informations proviennent du blog :</p>
-<p><a href="https://phmarduino.wordpress.com/2015/12/11/programmer-un-attiny-85/">https://phmarduino.wordpress.com/2015/12/11/programmer-un-attiny-85/</a> </p>
-<p>Toutes les instructions de ce blog ont été vérifiées et sont
-éventuellement complétées dans ce document.</p>
-<h3>Présentation de l'Attiny 85</h3>
-<p>Les caractéristiques techniques de …</p>
-                <a class="readmore" href="/programmer-un-attiny85-a-laide-dun-arduino.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
         </section><!-- /#extras -->
 

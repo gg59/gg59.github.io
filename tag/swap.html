@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Geo de Rieulay - swap</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Geo de Rieulay</a></h1>
+                <nav><ul>
+                    <li><a href="/category/micro-controleurs.html">Micro-Controleurs</a></li>
+                    <li><a href="/category/raspberry.html">Raspberry</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/modifier-la-taille-du-fichier-swap.html">Modifier la taille du fichier swap</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2022-03-17T00:00:00+01:00">
+                Published: jeu. 17 mars 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/gg.html">GG</a>
+        </address>
+<p>In <a href="/category/raspberry.html">Raspberry</a>.</p>
+<p>tags: <a href="/tag/raspberry.html">raspberry</a> <a href="/tag/swap.html">swap</a> </p>
+</footer><!-- /.post-info --><p>Le raspberry a+ a 512mo de ram et une mémoire swap par défaut de 100mo. Pour l’augmenter :</p>
+<pre>
+sudo nano /etc/dphys-swapfile
+</pre>
+
+<p>et modifier la ligne</p>
+<pre>
+CONF_SWAPFILE=100
+</pre>
+
+<p>en remplaçant la valeur 100 par la valeur en Mo dont vous avez besoin. Si vous avez besoin d’une valeur supérieur à 2.048 GO, il faut modifier la limite en modifiant la dernière ligne du fichier du fichier.
+Pour le rasberry a+ la valeur 512 semble régler les problèmes de « freezing »</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

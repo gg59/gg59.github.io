@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Programmer un Attiny85 à l'aide d'un Arduino</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Introduction Ce document montre comment utiliser un Arduino pour programmer le composant Attiny85. Les informations proviennent du blog :..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Geo de Rieulay</a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/micro-controleurs.html">Micro-Controleurs</a></li>
+                    <li><a href="/category/raspberry.html">Raspberry</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/programmer-un-attiny85-a-laide-dun-arduino.html" rel="bookmark"
+           title="Permalink to Programmer un Attiny85 à l'aide d'un Arduino">Programmer un Attiny85 à l'aide d'un Arduino</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-03-17T00:00:00+01:00">
+                Published: jeu. 17 mars 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/gg.html">GG</a>
+        </address>
+<p>In <a href="/category/micro-controleurs.html">Micro-Controleurs</a>.</p>
+<p>tags: <a href="/tag/arduino.html">arduino</a> <a href="/tag/attiny85.html">attiny85</a> </p>
+</footer><!-- /.post-info -->      <h1>Introduction</h1>
+<p>Ce document montre comment utiliser un Arduino pour programmer le
+composant Attiny85. Les informations proviennent du blog :</p>
+<p><a href="https://phmarduino.wordpress.com/2015/12/11/programmer-un-attiny-85/">https://phmarduino.wordpress.com/2015/12/11/programmer-un-attiny-85/</a> </p>
+<p>Toutes les instructions de ce blog ont été vérifiées et sont
+éventuellement complétées dans ce document.</p>
+<h3>Présentation de l'Attiny 85</h3>
+<p>Les caractéristiques techniques de ce micro-contrôleur sont les
+suivantes:</p>
+<table>
+<thead>
+<tr>
+<th>Caractéristique</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Taille de la mémoire Flash</td>
+<td>8 Ko (pour les programmes)</td>
+</tr>
+<tr>
+<td>Mémoire SRAM</td>
+<td>512 Octets</td>
+</tr>
+<tr>
+<td>Mémoire EEPROM</td>
+<td>512 Octets</td>
+</tr>
+<tr>
+<td>Nombre d'entrées/sorties</td>
+<td>Jusqu'à 6 (5 en pratique)</td>
+</tr>
+<tr>
+<td>Courant maximal en sortie</td>
+<td>40 mA</td>
+</tr>
+<tr>
+<td>Courant maximal total</td>
+<td>200 mA</td>
+</tr>
+<tr>
+<td>Tension d'alimentation</td>
+<td>2.7 à 5.5V</td>
+</tr>
+<tr>
+<td>Fréquence d'utilisation</td>
+<td>0 à 20Mhz</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Photo de l'Attiny85 :</strong></p>
+<p><img alt="im" src="/images/aa85/i3.jpg"></p>
+<p><strong>Brochage de l'Attiny85 :</strong></p>
+<p><img alt="im" src="/images/aa85/i4.jpg"></p>
+<p>La broche 1 est repérée par le rond creux situé sur le dessus du
+composant.</p>
+<h2>Préparation de l'IDE Arduino</h2>
+<p>La préparation de l'IDE Arduino est décrite ci-dessous :</p>
+<p>Aller dans les préférences et saisir l'URL  suivante : </p>
+<p><a href="https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json">https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json</a></p>
+<p>dans la zone « Additional board URL » en bas de l'écran, puis cliquer sur OK :</p>
+<p><img alt="im" src="/images/aa85/i5.png"></p>
+<p>Aller ensuite dans le menu « Type de carte » / « Boards Manager »,
+cliquer sur attiny et un bouton « Install » doit apparaître désormais.</p>
+<p>Cliquer dessus.</p>
+<p><img alt="im" src="/images/aa85/i1.png"></p>
+<p>Le message « INSTALLED » doit apparaître à la fin de l'installation
+comme on peut le voir ci-dessous :</p>
+<p><img alt="im" src="/images/aa85/i2.png"></p>
+<p>... et dans le menu « Outil » / « Type de carte » il doit désormais y
+avoir Attiny...</p>
+<p>Ensuite ouvrir le sketch ArduinoISP disponible via les menus dans les
+exemples.</p>
+<p>Vers la ligne 75, enlever le commentaire pour OLD_STYLE_WIRING</p>
+<p>// Uncomment following line to use the old Uno style wiring</p>
+<p>// (using pin 11, 12 and 13 instead of the SPI header) on Leonardo, Due...</p>
+<p>#define USE_OLD_STYLE_WIRING</p>
+<p>le téléverser dans votre Arduino.</p>
+<p>L'IDE Arduino est désormais prêt pour programmer des Attiny.</p>
+<p>Dans le menu « Outils », sélectionner :</p>
+<ul>
+<li>Type de carte : Attiny,</li>
+<li>Processor : Attiny85,</li>
+<li>Programmateur : Arduino as ISP.</li>
+</ul>
+<h2>Connexion de l'Attiny</h2>
+<p>Rappel du brochage de l'Attiny85 :</p>
+<p><img alt="im" src="/images/aa85/i4.jpg"></p>
+<p>Il faut connecter MISO, MOSI, SCK, RESET, VCC, et GND de l'Arduino vers
+l'Attiny de la manière suivante :</p>
+<ul>
+<li><strong>RESET : </strong>Arduino Pin 10 -> ATtiny Reset Pin (patte 1)</li>
+<li><strong>MOSI   : </strong>Arduino Pin 11 -> ATtiny Pin 0 (patte 5)</li>
+<li><strong>MISO   : </strong>Arduino Pin 12 -> ATtiny Pin 1 (patte 6)</li>
+<li><strong>SCK      : </strong>Arduino Pin 13 -> ATtiny Pin 2 (patte 7)</li>
+</ul>
+<h2>Facultatif : (à faire en cas de problème)</h2>
+<p>Sur l'Arduino placer un condensateur chimique de 10 uF entre la broche
+Reset et la masse (GND) de l'Arduino (pole négatif avec un trait sur le
+condensateur).</p>
+<p>Ce condensateur empêche la carte Arduino de faire un reset et de
+redémarrer ainsi le bootloader lors des téléversements destinés à
+l'Attiny. De cette façon en effet on est sur que l'IDE Arduino rentre en
+communication avec ArduinoISP (et non le bootloader) durant le
+téléversement du croquis qui est destiné à l'Attiny et pas pas à
+l'Arduino</p>
+<h2>Programme de test</h2>
+<p>Pour le premier test on peut simplement utiliser l'exemple classique
+blink disponible via les menus  en remplaçant ensuite pour la led à
+faire clignoter la patte 13 indiqué dans le sketch par la patte 4 et
+brancher ensuite sur l'Attiny (pin 4) une LED en série avec une
+résistance de 220 ohms environ.</p>
+<p>Rappel : la patte la plus longue d'une LED doit être reliée à VCC (5V)</p>
+<p>Pour téléverser appuyer sur la touche SHIFT en même temps que le bouton
+habituel de téléversement de l'IDE Arduino.</p>
+<p>Code :</p>
+<pre>
+void setup()
+{
+ pinMode(4, OUTPUT);
+}
+
+void loop()
+{
+ digitalWrite(4, HIGH);
+ delay(100);
+ digitalWrite(4, LOW);
+ delay(100);
+}
+</pre>
+
+<h2>Configuration de l'Attiny à 8 MHz (optionnel)</h2>
+<p>Par défaut, l'Attiny tourne à 1 Mhz. Pour pouvoir utiliser la
+bibliothèque SoftwareSerial (si vous en avez le besoin), il faut le
+programmer pour qu'il tourne à 8 Mhz.</p>
+<p>Pour cela, une fois le montage réalisé présenté précédemment, il faut
+choisir dans le menu « Outil » / « Clock » / « 8Mhz INTERNAL ».</p>
+<p>Ensuite sélectionner dans le menu « Outil » « Graver la séquence
+d'initialisation ».</p>
+<h2>Références</h2>
+<p>Pour info, les ordres Arduino ne sont pas tous utilisables pour un
+programme destiné à l'Attiny. Seuls les ordres Arduino ci-dessous sont
+disponibles pour les programmes Attiny :</p>
+<ul>
+<li><a href="http://arduino.cc/en/Reference/PinMode">pinMode()</a></li>
+<li><a href="http://arduino.cc/en/Reference/DigitalWrite">digitalWrite()</a></li>
+<li><a href="http://arduino.cc/en/Reference/DigitalRead">digitalRead()</a></li>
+<li><a href="http://arduino.cc/en/Reference/AnalogRead">analogRead()</a></li>
+<li><a href="http://arduino.cc/en/Reference/AnalogWrite">analogWrite()</a></li>
+<li><a href="http://arduino.cc/en/Reference/ShiftOut">shiftOut()</a></li>
+<li><a href="http://arduino.cc/en/Reference/PulseIn">pulseIn()</a></li>
+<li><a href="http://arduino.cc/en/Reference/Millis">millis()</a></li>
+<li><a href="http://arduino.cc/en/Reference/Micros">micros()</a></li>
+<li><a href="http://arduino.cc/en/Reference/Delay">delay()</a></li>
+<li><a href="http://arduino.cc/en/Reference/DelayMicroseconds">delayMicroseconds()</a></li>
+<li><a href="http://arduino.cc/en/Reference/SoftwareSerial">SoftwareSerial</a></li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
